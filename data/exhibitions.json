@@ -1,0 +1,88 @@
+[
+  {
+    "slug": "ganz-anders",
+    "title": "ganz anders",
+    "subtitle": "Einzelausstellung",
+    "location": "Waldalgesheim",
+    "date_label": "Mai 2026",
+    "start": "2026-05-01",
+    "end": null,
+    "status": "current",
+    "is_upcoming": true,
+    "description": "Zweite Einzelausstellung in Waldalgesheim. Neue Arbeiten von Ute Mauckert – Zeichnungen, Aquarelle, Pastelle, Urban Sketches und Acrylarbeiten.",
+    "images": [
+      "/images/ausstellungen/ganz-anders/poster-preview.png",
+      "/images/ausstellungen/ganz-anders/ganz-anders-01.jpg",
+      "/images/ausstellungen/ganz-anders/ganz-anders-02.jpg",
+      "/images/ausstellungen/ganz-anders/ganz-anders-03.jpeg",
+      "/images/ausstellungen/ganz-anders/ganz-anders-04.jpg"
+    ],
+    "cover": "/images/ausstellungen/ganz-anders/hauptbild.jpg"
+  },
+  {
+    "slug": "kunst-trifft-kaffee",
+    "title": "Kunst trifft Kaffee",
+    "subtitle": "KukuVaia × Mauckert Gallery",
+    "location": "Frankfurt am Main",
+    "date_label": "Juni 2025",
+    "start": "2025-06-01",
+    "end": "2025-06-30",
+    "status": "past",
+    "is_upcoming": false,
+    "description": "Ausstellung im KukuVaia in Frankfurt am Main. Ausgewählte Arbeiten in einem Café-Galerie-Format mit Plakat, Exponatenliste und Vernissage.",
+    "images": [
+      "/images/ausstellungen/kunst-trifft-kaffee/kunst-trifft-kaffee-01.jpg",
+      "/images/ausstellungen/kunst-trifft-kaffee/kunst-trifft-kaffee-02.jpeg",
+      "/images/ausstellungen/kunst-trifft-kaffee/kunst-trifft-kaffee-03.jpeg",
+      "/images/ausstellungen/kunst-trifft-kaffee/kunst-trifft-kaffee-04.jpeg",
+      "/images/ausstellungen/kunst-trifft-kaffee/kunst-trifft-kaffee-05.jpeg"
+    ],
+    "cover": "/images/ausstellungen/kunst-trifft-kaffee/hauptbild.jpeg"
+  },
+  {
+    "slug": "alles-kann-nix-muss",
+    "title": "Alles kann, nix muss",
+    "subtitle": "Gemeinschaftsausstellung mit Rudolf Babusek & Hans Schröder",
+    "location": "Kunst Raum Bingen",
+    "date_label": "01.02. – 27.02.2025",
+    "start": "2025-02-01",
+    "end": "2025-02-27",
+    "status": "past",
+    "is_upcoming": false,
+    "description": "Drei Mitglieder des Kunstspektrum Bingen präsentieren Arbeiten aus ihrem Repertoire – jeder mit eigener künstlerischer Handschrift. Ein zentrales Thema: der kritische Umgang mit Künstlicher Intelligenz in der Kunst. Inspiriert von einem japanisch angelegten Garten widmeten sich die drei Künstler den Kois im Teich und einer Japanischen Kiefer in unterschiedlichen Techniken.",
+    "press": {
+      "outlet": "Binger Wochenblatt, Ausgabe 840",
+      "headline": "Drei Künstler in einer Ausstellung",
+      "byline": "Von Sören Heim",
+      "date_label": "8. Februar 2025",
+      "quote": "„Alles kann, nix muss“ – ein indirektes Zitat der berühmten Frage: „Ist das Kunst oder kann das weg?“",
+      "body": [
+        "Unter dem Motto „Alles kann, nix muss“ zeigen Rudolf Babusek, Ute Mauckert und Hans Schröder ihre Werke im Kunst Raum Bingen. Die Ausstellung wurde Anfang Februar 2025 eröffnet und ist bis zum 27. Februar zu sehen.",
+        "Ein zentrales Thema ist der kritische Umgang mit Künstlicher Intelligenz in der Kunst. Die drei Künstler nehmen eine KI-generierte Bildidee – etwa Kois in einem Teich – als Ausgangspunkt und stellen ihre eigenen künstlerischen Interpretationen dagegen, um die Rolle der KI in der Kunst grundsätzlich in Frage zu stellen.",
+        "Ute Mauckert hat im Architekturstudium zunächst technisch gezeichnet und sich dann dem Urban Sketching sowie der Aquarell- und Acrylmalerei zugewandt. Ihr Werk umfasst Landschaften und Stadtansichten – darunter eine Komposition in Gold- und Schwarztönen mit dem Titel „Skyline“."
+      ]
+    },
+    "images": [],
+    "cover": null
+  },
+  {
+    "slug": "auf-der-suche",
+    "title": "Auf der Suche",
+    "subtitle": "Gezeichnetes und Gemaltes · Einzelausstellung",
+    "location": "Waldalgesheim",
+    "date_label": "November 2023",
+    "start": "2023-11-01",
+    "end": null,
+    "status": "past",
+    "is_upcoming": false,
+    "description": "Erste Einzelausstellung von Ute Mauckert. Gezeigt wurden Zeichnungen, Aquarelle, Pastelle, Urban Sketches und Acrylarbeiten – ein Spektrum, das die Vielseitigkeit der künstlerischen Reise sichtbar macht. Einige Aquarelle und Pastelle stammen direkt aus der Umgebung von Waldalgesheim.",
+    "images": [
+      "/images/ausstellungen/auf-der-suche/auf-der-suche-01.jpeg",
+      "/images/ausstellungen/auf-der-suche/auf-der-suche-02.jpeg",
+      "/images/ausstellungen/auf-der-suche/auf-der-suche-03.jpeg",
+      "/images/ausstellungen/auf-der-suche/auf-der-suche-04.jpeg",
+      "/images/ausstellungen/auf-der-suche/auf-der-suche-05.jpg"
+    ],
+    "cover": "/images/ausstellungen/auf-der-suche/hauptbild.jpg"
+  }
+]

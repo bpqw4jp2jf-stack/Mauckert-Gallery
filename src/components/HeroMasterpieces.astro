@@ -1,0 +1,48 @@
+---
+import { getArtworkBySlug, primaryImage } from "../lib/artworks";
+import featuredData from "../../data/featured.json";
+
+interface FeaturedEntry { slug: string; tag: string; sold?: boolean }
+const all = (featuredData as FeaturedEntry[])
+  .filter((f) => f.tag === "Masterpiece")
+  .map((f) => ({ ...f, artwork: getArtworkBySlug(f.slug) }))
+  .filter((f) => f.artwork);
+---
+<section class="hero-feature">
+  <div class="container">
+    <div class="hero-text">
+      <p class="eyebrow">Mauckert Gallery</p>
+      <h1>Kreative Vielfalt</h1>
+      <p class="subtitle">
+        Kunst von Ute Mauckert – Aquarell, Graphit, Pastell, Acryl und mehr.
+      </p>
+    </div>
+
+    <div class="hero-artworks" id="hero-artworks">
+      {all.map((f, i) => (
+        <a class="hero-art" href={`/galerie/${f.slug}/`} data-i={i}>
+          <div class="hero-frame">
+            <img src={primaryImage(f.artwork!)} alt={f.artwork!.name} loading="eager" />
+            {f.sold && <span class="badge badge-sold">Verkauft</span>}
+          </div>
+          <span class="hero-art-title">{f.artwork!.name}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    const wrap = document.getElementById("hero-artworks");
+    if (!wrap) return;
+    const cards = Array.from(wrap.querySelectorAll(".hero-art"));
+    if (cards.length <= 3) return;
+    // Pick 3 random distinct indices
+    const idxs = new Set();
+    while (idxs.size < 3) idxs.add(Math.floor(Math.random() * cards.length));
+    cards.forEach((c, i) => {
+      if (!idxs.has(i)) c.remove();
+    });
+  })();
+</script>

@@ -1,0 +1,49 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { exhibitions } from "../../lib/exhibitions";
+
+export function getStaticPaths() {
+  return exhibitions.map((e) => ({ params: { slug: e.slug }, props: { exhibition: e } }));
+}
+
+const { exhibition: e } = Astro.props;
+---
+<BaseLayout title={`${e.title} – Mauckert Gallery`}>
+  <div class="container">
+    <div class="exhibition-detail-head">
+      <p class="eyebrow">{e.is_upcoming ? "Aktuell" : "Archiv"} · {e.date_label}</p>
+      <h1>{e.title}</h1>
+      <p class="ex-sub">{e.subtitle}</p>
+      <p class="ex-loc">{e.location}</p>
+    </div>
+
+    <div class="prose">
+      <p>{e.description}</p>
+    </div>
+
+    {e.press && (
+      <article class="press-article">
+        <p class="eyebrow">Presse · {e.press.outlet}</p>
+        <h2>{e.press.headline}</h2>
+        <p class="press-byline">{e.press.byline} · {e.press.date_label}</p>
+        {e.press.body.map((para: string) => <p>{para}</p>)}
+        <blockquote class="pullquote">{e.press.quote}</blockquote>
+      </article>
+    )}
+
+    {e.images.length > 0 && (
+      <section class="exhibition-gallery">
+        <h2 class="section-title">Impressionen</h2>
+        <div class="gallery-grid">
+          {e.images.map((src: string, i: number) => (
+            <a href={src} class="gallery-item">
+              <img src={src} alt={`${e.title} – Impression ${i + 1}`} loading="lazy" />
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <p style="margin-top:3rem;"><a href="/ausstellungen/" style="color:var(--muted);">← Alle Ausstellungen</a></p>
+  </div>
+</BaseLayout>

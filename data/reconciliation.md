@@ -1,0 +1,168 @@
+# Abgleich Website ↔ Werkverzeichnis
+
+- Werke auf Website: **132**
+- Einträge im Werkverzeichnis: **48**
+
+## Werke auf der Website, die nicht eindeutig im Werkverzeichnis stehen (120)
+
+Stichwort-Match in Klammern = möglicher Treffer mit anderer Schreibweise.
+
+- Abendstimmung am Meer  _(möglich: Traum vom Meer)_
+- Abgewandt
+- Abstrakte Landschaft
+- Abstraktes Rheinland I  _(möglich: Farbenfrohes Rheinland Pfalz)_
+- Abstraktes Rheinland II  _(möglich: Farbenfrohes Rheinland Pfalz)_
+- Allgäu
+- Anmutig Plate III Hommage an Charles Bargue
+- Apfelblüte aus Nachbarsgarten
+- Aufgeschreckt Plate I Hommage an Charles Bargue
+- Aus Nachbars Garten
+- Austria
+- Baumstudie I  _(möglich: Baumstudie 1)_
+- Baumstudie II  _(möglich: Baumstudie 1)_
+- Baumstudie in Bingen  _(möglich: Bingen vom Weilerer Hörnchen)_
+- Bei Rümmelsheim
+- Bingen am Rhein - Urban Sketch  _(möglich: Bingen aus dem HGA Urban Sketch)_
+- Blick auf abendliches Bingen  _(möglich: Bingen vom Weilerer Hörnchen)_
+- Blick in die Ferne II Plate III Hommage an Charles Bargue
+- Buntes Rheinland  _(möglich: Farbenfrohes Rheinland Pfalz)_
+- Dame in Rot
+- Das Meer ruft  _(möglich: Traum vom Meer)_
+- Dem Genius Beethoven Hommage an G Kolbe
+- Eichelhülse
+- Eingeschlafen
+- Erschöpft Plate III Hommage an Charles Bargue
+- Farbenfrohes Rheinland  _(möglich: Farbenfrohes Rheinland Pfalz)_
+- Farbenfrohes Rheinland II  _(möglich: Farbenfrohes Rheinland Pfalz)_
+- Farbenfrohes Rheinland III  _(möglich: Farbenfrohes Rheinland Pfalz)_
+- Fiktive Blüte
+- Gelassener Jüngling
+- Geträumte Landschaft
+- Geträumte Landschaft Rügen
+- Hagebuttentraum
+- Hauptwache Frankfurt
+- Himmelschlüssel trifft Annemone
+- Hinweg Plate III Hommage an Charles Bargue
+- Hoffnungsschimmer
+- Homage an Käthe Kollwitz  _(möglich: Hommage an Käthe Kollwitz)_
+- Hommage an Charles Bargue  _(möglich: 1 Kerze, Hommage an Gerhard  Richter)_
+- Hommage an G. Richter  _(möglich: 1 Kerze, Hommage an Gerhard  Richter)_
+- Hommage an K. Kollwitz I  _(möglich: 1 Kerze, Hommage an Gerhard  Richter)_
+- Hommage an K. Kollwitz II  _(möglich: 1 Kerze, Hommage an Gerhard  Richter)_
+- Hommage an K. Kollwitz III  _(möglich: 1 Kerze, Hommage an Gerhard  Richter)_
+- Hommage an Schiele  _(möglich: 1 Kerze, Hommage an Gerhard  Richter)_
+- Im Weinberg bei Rümmelsheim
+- In sich gekehrt Plate III Hommage an Charles Bargue
+- Interessiert Plate III Hommage an Charles Bargue
+- Into the Blue
+- Isabell
+- Italien
+- Italienische Impression I
+- Italienische Impression II
+- Italienische Impression II
+- Italienische Landschaft
+- Jüngling I Plate III Hommage an Charles Bargue
+- Jüngling II Plate III Hommage Charles Bargue
+- Jüngling mit Ball
+- Kraftvoller Rücken - Akt
+- Kreidefels Binz am Fischerstrand
+- Kreidefelsen Rügen
+- Küchenschelle aus Nachbarsgarten
+- Landschaft bei Ingelheim I
+- Landschaft bei Ingelheim II
+- Landschaft bei Roth
+- Landschaft bei Rümmelsheim
+- Landschaft bei Weiler bei Bingen  _(möglich: Bingen vom Weilerer Hörnchen)_
+- Landschaft Hommage an H. Jansan  _(möglich: 1 Kerze, Hommage an Gerhard  Richter)_
+- Licht in Sicht  _(möglich: Licht im Tunnel)_
+- Magdalena Plate II Hommage an Charles Bargue
+- Magnolienblüte
+- Magnolienblüte im Steinkrug
+- Markus
+- Medusa Frankfurt am Main
+- Michael I
+- Michael II
+- Mäuseturm bei Bingen I  _(möglich: Bingen vom Weilerer Hörnchen)_
+- Mäuseturm bei Bingen II  _(möglich: Bingen vom Weilerer Hörnchen)_
+- Nach Bolero nach Ravel  _(möglich: Der Weg nach Waldalgesheim)_
+- Nachdenklicher Akt
+- Nicoletta
+- Nicoletta Akt
+- Nicoletta II
+- Ohne Titel
+- Oliver
+- Porträt Michael
+- Privatbesitz -Studie mit Käfer
+- Raphael Plate III Hommage an Charles Bargue
+- Rasche Skizze
+- Rhapsodie in Rot
+- Rheingold
+- Rheingold
+- Rheingold
+- Rheinlandschaft bei der Loreley I  _(möglich: An der Loreley 2 Sketches)_
+- Rheinlandschaft bei der Loreley II  _(möglich: An der Loreley 2 Sketches)_
+- Ring der Statuen Frankfurt von Georg Kolbe I
+- Ring der Statuen Frankfurt von Georg Kolbe II
+- Rotkelchen Franz
+- Rückenakt Ring der Statuen Hommage an G. Kolbe
+- Stillleben
+- Strohballen bei Waldalgesheim  _(möglich: Der Weg nach Waldalgesheim)_
+- Taubnessel trifft Tausendschönchen
+- Toxische Pfaffenhütchen
+- Traubenhyazinthe trifft Stiefmütterchen  _(möglich: Traubenhyazinthe)_
+- Trauerarbeit Plate III nach Charles Bargue
+- Tukan
+- Tutu der kleine Racker
+- Unterwegs I
+- Unterwegs II
+- Urban Sketch in Mainz I  _(möglich: Bingen aus dem HGA Urban Sketch)_
+- Urban Sketch in Mainz II  _(möglich: Bingen aus dem HGA Urban Sketch)_
+- Verflochtener Baum bei Rüdesheim  _(möglich: Mein Freund der Baum 1)_
+- Verschlossen
+- Violette Flucht
+- Weg nach Waldalgesheim  _(möglich: Der Weg nach Waldalgesheim)_
+- Weingüter Dr. Hofer & Diehl (I)
+- Weingüter Dr. Hofer & Diehl (II)
+- Windsbraut, gerahmt im Schattenfugenrahmen
+- Wintertraum
+- Zugeneigt Plate III nach Charles Bargue
+- Zwei Abstrakte
+
+## Werke im Werkverzeichnis, die nicht eindeutig auf der Website sind (36)
+
+- "rüber geschaut"
+- 1 Kerze, Hommage an Gerhard  Richter  _(möglich: Hommage an G. Richter)_
+- An der Loreley 2 Sketches  _(möglich: Rheinlandschaft bei der Loreley I)_
+- Aufgesammelt
+- Aus dem Leporello Bingen  _(möglich: Mäuseturm bei Bingen I)_
+- Baumstudie 1  _(möglich: Baumstudie II)_
+- Baumstudie 2  _(möglich: Baumstudie II)_
+- Baumstudie 3  _(möglich: Baumstudie II)_
+- Bingen aus dem HGA Urban Sketch  _(möglich: Mäuseturm bei Bingen I)_
+- Bingen Burg Klopp  _(möglich: Mäuseturm bei Bingen I)_
+- Bingen vom Weilerer Hörnchen  _(möglich: Mäuseturm bei Bingen I)_
+- Bingen von Burg Klopp aus  _(möglich: Mäuseturm bei Bingen I)_
+- Burg Klopp Urban Sketch  _(möglich: Bingen am Rhein - Urban Sketch)_
+- Burg Klopp Urban Sketch Ausschnitt  _(möglich: Bingen am Rhein - Urban Sketch)_
+- Burg Klopp Urban Sketch Dach HGH  _(möglich: Bingen am Rhein - Urban Sketch)_
+- Der Weg nach Waldalgesheim  _(möglich: Nach Bolero nach Ravel)_
+- Diverse Binger Skizzen
+- Farbenfrohes Rheinland Pfalz  _(möglich: Farbenfrohes Rheinland)_
+- Hagebutten
+- Heimal geträumt
+- Heimal geträumt
+- Heimat geträumt 1
+- Heimat geträumt 2
+- Hommage an Giacomo Manzu  _(möglich: Rückenakt Ring der Statuen Hommage an G. Kolbe)_
+- Im Gebüsch
+- In der Kurve
+- Italy
+- Mein Freund der Baum 1  _(möglich: Verflochtener Baum bei Rüdesheim)_
+- Mein Freund der Baum 2  _(möglich: Verflochtener Baum bei Rüdesheim)_
+- nach Bobero von Ravel  _(möglich: Nach Bolero nach Ravel)_
+- Salbei - Küchenskizze  _(möglich: Knoblauch - Küchenskizze)_
+- Sonnenblumen aus Stromberg
+- Stilleben
+- Traum vom Meer  _(möglich: Abendstimmung am Meer)_
+- Unwetter in Rheinland  _(möglich: Farbenfrohes Rheinland)_
+- Venezia - nur geträumt

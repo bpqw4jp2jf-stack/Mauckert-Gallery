@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { artworks, formatPrice, primaryImage } from "../../lib/artworks";
+
+export function getStaticPaths() {
+  return artworks.map((a) => ({ params: { slug: a.slug }, props: { artwork: a } }));
+}
+
+const { artwork } = Astro.props;
+const main = primaryImage(artwork);
+const subject = `Anfrage: ${artwork.name}`;
+const body = `Hallo Frau Mauckert,\n\nich interessiere mich für das Werk "${artwork.name}" (${formatPrice(artwork)}).\nLink: ${Astro.site?.toString() ?? ""}galerie/${artwork.slug}/\n\nViele Grüße,\n`;
+const mailto = `mailto:s.mauckert@web.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+---
+<BaseLayout title={`${artwork.name} – Mauckert Gallery`} description={artwork.description || artwork.name}>
+  <div class="container artwork-detail">
+    <div class="images">
+      {artwork.media.map((m) => (
+        <img src={m.local_path || m.display_url} alt={artwork.name} loading="lazy" />
+      ))}
+    </div>
+    <aside class="info">
+      <h1>{artwork.name}</h1>
+      {artwork.categories.length > 0 && (
+        <p class="eyebrow">{artwork.categories.join(" · ")}</p>
+      )}
+      {artwork.description && <p>{artwork.description}</p>}
+      <div class="price">{formatPrice(artwork)}</div>
+      <a class="btn" href={mailto}>Anfragen</a>
+      <dl>
+        {artwork.media[0]?.width && artwork.media[0]?.height && (
+          <>
+            <dt>Format</dt>
+            <dd>{artwork.media[0].width} × {artwork.media[0].height} px (Original)</dd>
+          </>
+        )}
+        {artwork.in_stock != null && (
+          <>
+            <dt>Verfügbarkeit</dt>
+            <dd>{artwork.in_stock ? "Verfügbar" : "Verkauft"}</dd>
+          </>
+        )}
+      </dl>
+      <p style="margin-top:2rem;"><a href="/galerie/" style="color:var(--muted);">← Zurück zur Galerie</a></p>
+    </aside>
+  </div>
+</BaseLayout>

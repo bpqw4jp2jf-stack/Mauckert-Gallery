@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { exhibitions } from "../../lib/exhibitions";
+
+const current = exhibitions.filter((e) => e.is_upcoming);
+const archive = exhibitions.filter((e) => !e.is_upcoming);
+---
+<BaseLayout title="Ausstellungen – Mauckert Gallery">
+  <div class="container">
+    <div class="hero" style="padding:3.5rem 0 1rem;">
+      <h1>Ausstellungen</h1>
+    </div>
+
+    {current.length > 0 && (
+      <section class="exhibition-list current">
+        <p class="eyebrow">Aktuell</p>
+        {current.map((e) => (
+          <a class="exhibition-card large" href={`/ausstellungen/${e.slug}/`}>
+            {e.cover && <div class="ex-cover"><img src={e.cover} alt={e.title} /></div>}
+            <div class="ex-meta">
+              <h2>{e.title}</h2>
+              <p class="ex-sub">{e.subtitle}</p>
+              <p class="ex-loc">{e.location} · {e.date_label}</p>
+              <p class="ex-desc">{e.description}</p>
+              <span class="more">Mehr erfahren →</span>
+            </div>
+          </a>
+        ))}
+      </section>
+    )}
+
+    <section class="exhibition-list archive">
+      <p class="eyebrow">Archiv</p>
+      <div class="ex-grid">
+        {archive.map((e) => (
+          <a class="exhibition-card" href={`/ausstellungen/${e.slug}/`}>
+            {e.cover ? (
+              <div class="ex-cover"><img src={e.cover} alt={e.title} /></div>
+            ) : (
+              <div class="ex-cover placeholder"><span>{e.title}</span></div>
+            )}
+            <div class="ex-meta">
+              <h3>{e.title}</h3>
+              <p class="ex-sub">{e.subtitle}</p>
+              <p class="ex-loc">{e.location} · {e.date_label}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  </div>
+</BaseLayout>

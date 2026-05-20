@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import vitaData from "../../data/vita.json";
+
+const { intro, intro_2, timeline } = vitaData;
+---
+<BaseLayout title="Vita – Ute Mauckert">
+  <div class="container">
+    <div class="hero" style="padding:3.5rem 0 1.5rem;">
+      <p class="eyebrow" style="text-align:center;">Über mich</p>
+      <h1>Ute Mauckert</h1>
+    </div>
+    <div class="prose">
+      <p>{intro}</p>
+      <p>{intro_2}</p>
+    </div>
+
+    <div class="timeline">
+      <h2 class="section-title">Vita</h2>
+      <ul class="timeline-list">
+        {timeline.map((t: any) => (
+          <li class={t.highlight ? "highlight" : ""}>
+            <span class="t-date">{t.date}</span>
+            <span class="t-event">{t.event}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</BaseLayout>

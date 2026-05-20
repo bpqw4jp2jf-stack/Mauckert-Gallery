@@ -1,0 +1,65 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  theme?: "light" | "dark";
+}
+const { title, description = "Mauckert Gallery – Kunst von Ute Mauckert", theme = "light" } = Astro.props;
+const path = Astro.url.pathname;
+function isActive(href: string) {
+  if (href === "/") return path === "/";
+  return path === href || path.startsWith(href + "/");
+}
+const nav = [
+  { href: "/", label: "Home" },
+  { href: "/galerie", label: "Galerie" },
+  { href: "/vita", label: "Vita" },
+  { href: "/ausstellungen", label: "Ausstellungen" },
+  { href: "/kontakt", label: "Kontakt" },
+];
+---
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class={theme === "dark" ? "theme-dark" : ""}>
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="/" aria-label="Mauckert Gallery – Startseite">
+          <svg class="brand-mark" viewBox="0 0 218 212" aria-hidden="true" focusable="false">
+            <g transform="translate(0,212) scale(0.1,-0.1)" fill="currentColor" stroke="none">
+              <path d="M2059 1966 c-2 -3 -441 -6 -974 -7 l-970 -2 2 -926 c2 -509 5 -925 8 -923 3 1 445 2 984 2 l978 0 2 483 1 482 -202 -3 c-157 -3 -203 0 -209 10 -5 7 -9 115 -9 241 0 125 -4 227 -8 227 -4 0 -30 -23 -57 -51 -28 -28 -106 -98 -175 -156 -69 -57 -169 -147 -222 -199 -53 -52 -100 -94 -105 -94 -5 0 -58 50 -118 111 -61 61 -159 153 -220 204 -60 51 -123 107 -140 125 -16 17 -41 40 -55 50 l-25 18 0 -127 c1 -69 2 -296 3 -503 l2 -377 105 -3 105 -3 0 283 c0 155 4 282 8 282 4 0 79 -70 167 -155 88 -85 167 -154 175 -155 9 0 24 16 35 36 22 40 85 108 160 171 102 86 150 123 156 123 15 0 21 -87 13 -189 -8 -104 -7 -342 2 -371 3 -11 23 -16 81 -18 43 -2 86 -5 96 -8 16 -5 17 7 17 160 l0 166 100 0 100 0 0 -270 0 -270 -770 0 -770 0 0 703 0 703 770 3 770 3 0 -251 0 -251 105 3 104 2 7 28 c3 15 4 178 2 362 -3 314 -6 353 -29 331z"/>
+            </g>
+          </svg>
+          <span class="brand-text">Mauckert Gallery</span>
+        </a>
+        <nav class="nav">
+          {nav.map((n) => (
+            <a href={n.href} class={isActive(n.href) ? "active" : ""}>{n.label}</a>
+          ))}
+        </nav>
+      </div>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <div>&copy; {new Date().getFullYear()} Mauckert Gallery</div>
+        <div><a href="/impressum">Impressum</a></div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ArtworkCard from "../components/ArtworkCard.astro";
+import SketchbookSlideshow from "../components/SketchbookSlideshow.astro";
+import HeroMasterpieces from "../components/HeroMasterpieces.astro";
+import { artworks, getArtworkBySlug } from "../lib/artworks";
+import { upcoming } from "../lib/exhibitions";
+import featuredData from "../../data/featured.json";
+
+interface FeaturedEntry { slug: string; tag: string; sold?: boolean }
+const featured = (featuredData as FeaturedEntry[])
+  .map((f) => ({ ...f, artwork: getArtworkBySlug(f.slug) }))
+  .filter((f) => f.artwork);
+const masterpieces = featured.filter((f) => f.tag === "Masterpiece");
+const soldHighlights = featured.filter((f) => f.tag === "Verkauft");
+const next = upcoming();
+
+const techniques = [
+  { title: "Urban Sketching",  body: "Mit wenigen Strichen fange ich das pulsierende Leben der Stadt ein. Urban Sketching erlaubt es mir, Augenblicke festzuhalten und meine Erlebnisse mit der Welt zu teilen – Teil einer globalen Gemeinschaft von Künstlern.", slug: "urban-sketching" },
+  { title: "Aquarelle",        body: "Aquarellmalerei bietet mir den Raum, mit Wasser und Farbe zu spielen. Ob spontan oder geplant – jede Arbeit ist ein Spiegel meiner Gedanken und Emotionen, die sich in sanften Farbübergängen entfalten.", slug: "aquarell" },
+  { title: "Pastellkunst",     body: "Das Arbeiten mit Pastell im Feld erfordert Geduld und Präzision. Die raue Oberfläche von Pastel Mat und der Umgang mit den Materialien machen jede Session zu einem spannenden Abenteuer.", slug: "pastell" },
+  { title: "Acrylmalerei",     body: "Mit Acrylfarben erschaffe ich lebendige und dynamische Werke. Die Vielseitigkeit dieser Technik ermöglicht es mir, sowohl kräftige Farbexplosionen als auch subtile Nuancen darzustellen.", slug: "acryl" },
+];
+---
+<BaseLayout title="Mauckert Gallery – Kunst und mehr">
+  <HeroMasterpieces />
+
+  {next && (
+    <section class="upcoming">
+      <div class="container">
+        <p class="eyebrow">Aktuelle Ausstellung</p>
+        <h2>{next.title}</h2>
+        <p class="upcoming-meta">{next.subtitle} · {next.location} · {next.date_label}</p>
+        <p class="upcoming-body">{next.description}</p>
+        <a class="btn" href={`/ausstellungen/${next.slug}/`}>Zur Ausstellung</a>
+      </div>
+    </section>
+  )}
+
+  <SketchbookSlideshow />
+
+  <section class="techniques">
+    <div class="container">
+      <h2 class="section-title">Techniken</h2>
+      <div class="technique-grid">
+        {techniques.map((t) => (
+          <a class="technique-card" href={`/galerie/kategorie/${t.slug}/`}>
+            <h3>{t.title}</h3>
+            <p>{t.body}</p>
+            <span class="more">Werke ansehen →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="featured-works">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Ausgewählte Werke</h2>
+        <a href="/galerie/" class="section-link">Alle Werke →</a>
+      </div>
+
+      <p class="eyebrow">Masterpieces</p>
+      <div class="grid-artworks" id="masterpieces-grid">
+        {masterpieces.map((f, i) => (
+          <div class={`mp-cell${i >= 3 ? " is-hidden" : ""}`}>
+            <ArtworkCard artwork={f.artwork!} badge="Masterpiece" sold={!!f.sold} />
+          </div>
+        ))}
+      </div>
+      {masterpieces.length > 3 && (
+        <div class="reveal-more">
+          <button type="button" id="show-more-mp" class="btn btn-ghost">
+            Mehr Masterpieces anzeigen
+          </button>
+        </div>
+      )}
+
+      {soldHighlights.length > 0 && (
+        <>
+          <p class="eyebrow" style="margin-top:4rem;">Verkauft</p>
+          <div class="grid-artworks">
+            {soldHighlights.slice(0, 3).map((f) => (
+              <ArtworkCard artwork={f.artwork!} badge="Verkauft" sold />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  </section>
+
+  <script is:inline>
+    (() => {
+      const btn = document.getElementById("show-more-mp");
+      if (!btn) return;
+      let open = false;
+      btn.addEventListener("click", () => {
+        open = !open;
+        document.querySelectorAll("#masterpieces-grid .mp-cell.is-hidden, #masterpieces-grid .mp-cell.is-revealed")
+          .forEach((c) => {
+            if (open) { c.classList.remove("is-hidden"); c.classList.add("is-revealed"); }
+            else      { c.classList.add("is-hidden");    c.classList.remove("is-revealed"); }
+          });
+        btn.textContent = open ? "Weniger anzeigen" : "Mehr Masterpieces anzeigen";
+      });
+    })();
+  </script>
+</BaseLayout>

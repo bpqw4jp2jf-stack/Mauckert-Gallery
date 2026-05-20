@@ -1,0 +1,434 @@
+[
+  {
+    "nr": "2019-001",
+    "titel": "Hagebutten",
+    "jahr": 2019,
+    "technik": "Aquarell und Graphitstift",
+    "masse": "0.30 x 0,30",
+    "preis": 100,
+    "status": "verkauft Fam. Doll"
+  },
+  {
+    "nr": "2022-001",
+    "titel": "Bingen vom Weilerer Hörnchen",
+    "jahr": 2022,
+    "technik": "Aquarell",
+    "masse": "32 x 32",
+    "preis": 170,
+    "status": null
+  },
+  {
+    "nr": "2022-002",
+    "titel": "Bingen von Burg Klopp aus",
+    "jahr": 2022,
+    "technik": "Aquarell und Fineliner",
+    "masse": "33 x 24",
+    "preis": 180,
+    "status": null
+  },
+  {
+    "nr": "2022-003",
+    "titel": "Aus dem Leporello Bingen",
+    "jahr": 2022,
+    "technik": "Aquarell und Fineliner",
+    "masse": "61 x 26",
+    "preis": 200,
+    "status": "verkauft"
+  },
+  {
+    "nr": "2024-001",
+    "titel": "Im Gebüsch",
+    "jahr": 2024,
+    "technik": "Bleistiftzeichnung",
+    "masse": "0.30 x 0,30",
+    "preis": "privat",
+    "status": null
+  },
+  {
+    "nr": "2024-002",
+    "titel": "Heimat geträumt 1",
+    "jahr": 2024,
+    "technik": "Mixed Media",
+    "masse": "70 x 50",
+    "preis": 300,
+    "status": null
+  },
+  {
+    "nr": "2024-003",
+    "titel": "Heimal geträumt",
+    "jahr": 2024,
+    "technik": "Acryl",
+    "masse": "77 x 28",
+    "preis": 150,
+    "status": null
+  },
+  {
+    "nr": "2024-004",
+    "titel": "Heimal geträumt",
+    "jahr": 2024,
+    "technik": "Acryl",
+    "masse": "77 x 28",
+    "preis": 150,
+    "status": null
+  },
+  {
+    "nr": "2025-001",
+    "titel": "1 Kerze, Hommage an Gerhard  Richter",
+    "jahr": 2025,
+    "technik": "Öl auf Leinwand",
+    "masse": "0,27 x 0,33",
+    "preis": "privat",
+    "status": null
+  },
+  {
+    "nr": "2025-002",
+    "titel": "Venezia - nur geträumt",
+    "jahr": 2025,
+    "technik": "Mixed Media auf Büttenpapier",
+    "masse": "1,07 x 0,78",
+    "preis": 800,
+    "status": null
+  },
+  {
+    "nr": "2025-003",
+    "titel": "Traum vom Meer",
+    "jahr": 2025,
+    "technik": "Pastell Kreide",
+    "masse": "0,32 x 0,26",
+    "preis": 150,
+    "status": "verkauft Dybowski"
+  },
+  {
+    "nr": "2025-004",
+    "titel": "Sonnenblumen aus Stromberg",
+    "jahr": 2025,
+    "technik": "Aquarell und Fineliner",
+    "masse": "0.30 x 0,30",
+    "preis": 100,
+    "status": null
+  },
+  {
+    "nr": "2025-005",
+    "titel": "Bingen Burg Klopp",
+    "jahr": 2025,
+    "technik": "Aquarell und Fineliner",
+    "masse": "0.30 x 0,41",
+    "preis": 150,
+    "status": null
+  },
+  {
+    "nr": "2025-006",
+    "titel": "An der Loreley 2 Sketches",
+    "jahr": 2025,
+    "technik": "Mixed Media - USK Rhein Main",
+    "masse": "40 x 40",
+    "preis": 300,
+    "status": null
+  },
+  {
+    "nr": "2025-007",
+    "titel": "Farbenfrohes Rheinland Pfalz",
+    "jahr": 2025,
+    "technik": "Mixed Media",
+    "masse": "40 x 40",
+    "preis": 300,
+    "status": null
+  },
+  {
+    "nr": "2025-008",
+    "titel": "Heimat geträumt 2",
+    "jahr": 2025,
+    "technik": "Mixed Media",
+    "masse": "40 x 40",
+    "preis": 300,
+    "status": null
+  },
+  {
+    "nr": "2025-009",
+    "titel": "Hommage an Giacomo Manzu",
+    "jahr": 2025,
+    "technik": "Bleistiftzeichnung",
+    "masse": "40 x 50",
+    "preis": 200,
+    "status": null
+  },
+  {
+    "nr": "2025-010",
+    "titel": "Hommage an Käthe Kollwitz",
+    "jahr": 2025,
+    "technik": "Graphit Block",
+    "masse": "25 x 31",
+    "preis": "privat",
+    "status": null
+  },
+  {
+    "nr": "2025-011",
+    "titel": "Bingen aus dem HGA Urban Sketch",
+    "jahr": 2025,
+    "technik": "Aquarell und Fineliner",
+    "masse": "31 x 40",
+    "preis": 100,
+    "status": null
+  },
+  {
+    "nr": "2025-012",
+    "titel": "Burg Klopp Urban Sketch Dach HGH",
+    "jahr": 2025,
+    "technik": "Aquarell und Fineliner",
+    "masse": "40 x 50",
+    "preis": 100,
+    "status": "verkauft J. Hassinger"
+  },
+  {
+    "nr": "2025-013",
+    "titel": "Mein Freund der Baum 1",
+    "jahr": 2025,
+    "technik": "Bleistiftzeichnung",
+    "masse": "31 x 40",
+    "preis": 150,
+    "status": null
+  },
+  {
+    "nr": "2025-014",
+    "titel": "Mein Freund der Baum 2",
+    "jahr": 2025,
+    "technik": "Bleistiftzeichnung",
+    "masse": "51x 61",
+    "preis": 250,
+    "status": "verkauft J. Hassinger"
+  },
+  {
+    "nr": "2025-015",
+    "titel": "Der Weg nach Waldalgesheim",
+    "jahr": 2025,
+    "technik": "Pastell Kreide",
+    "masse": "41 x 31",
+    "preis": 180,
+    "status": "verkauft D. Heuer"
+  },
+  {
+    "nr": "2025-016",
+    "titel": "Diverse Binger Skizzen",
+    "jahr": 2025,
+    "technik": "Aquarell und Fineliner",
+    "masse": "61 x 61",
+    "preis": 120,
+    "status": null
+  },
+  {
+    "nr": "2025-017",
+    "titel": "Hommage an Egon Schiele",
+    "jahr": 2025,
+    "technik": "Graphitstift",
+    "masse": "40 x 50",
+    "preis": 250,
+    "status": null
+  },
+  {
+    "nr": "2025-018",
+    "titel": "Aufgesammelt",
+    "jahr": 2025,
+    "technik": "Aquarell und Fineliner",
+    "masse": "37 x 28",
+    "preis": 80,
+    "status": null
+  },
+  {
+    "nr": "2025-019",
+    "titel": "Burg Klopp Urban Sketch",
+    "jahr": 2025,
+    "technik": "Aquarell und Bleistift",
+    "masse": "23 x 31",
+    "preis": 80,
+    "status": null
+  },
+  {
+    "nr": "2025-020",
+    "titel": "Burg Klopp Urban Sketch Ausschnitt",
+    "jahr": 2025,
+    "technik": "Aquarell und Fineliner",
+    "masse": "23 x 31",
+    "preis": 80,
+    "status": null
+  },
+  {
+    "nr": "2025-021",
+    "titel": "\"rüber geschaut\"",
+    "jahr": 2025,
+    "technik": "Aquarell und Fineliner",
+    "masse": "52 x 41",
+    "preis": 150,
+    "status": null
+  },
+  {
+    "nr": "2025-022",
+    "titel": "In der Kurve",
+    "jahr": 2025,
+    "technik": "Aquarell und Fineliner",
+    "masse": "61 x 26",
+    "preis": 200,
+    "status": "verkauft"
+  },
+  {
+    "nr": "2025-023",
+    "titel": "Baumstudie 1",
+    "jahr": 2025,
+    "technik": "Blei und Gaphitstift",
+    "masse": "21 x 30",
+    "preis": 60,
+    "status": null
+  },
+  {
+    "nr": "2025-024",
+    "titel": "Baumstudie 2",
+    "jahr": 2025,
+    "technik": "Blei auf Steinpapier",
+    "masse": "30 x 42",
+    "preis": 60,
+    "status": null
+  },
+  {
+    "nr": "2025-025",
+    "titel": "Baumstudie 3",
+    "jahr": 2025,
+    "technik": "Blei auf Papier",
+    "masse": "30 x 42",
+    "preis": 60,
+    "status": null
+  },
+  {
+    "nr": "2025-026",
+    "titel": "Herzen im Wald",
+    "jahr": 2025,
+    "technik": "Mixed Media auf Büttenpapier",
+    "masse": "55 x 38",
+    "preis": 220,
+    "status": null
+  },
+  {
+    "nr": "2025-027",
+    "titel": "nach Bobero von Ravel",
+    "jahr": 2025,
+    "technik": "Graphit",
+    "masse": "31 x 41",
+    "preis": 140,
+    "status": null
+  },
+  {
+    "nr": "2025-028",
+    "titel": "Stilleben",
+    "jahr": 2025,
+    "technik": "Öl auf Leinwand",
+    "masse": "41 x 30",
+    "preis": 100,
+    "status": null
+  },
+  {
+    "nr": "2025-029",
+    "titel": "Unwetter in Rheinland",
+    "jahr": 2025,
+    "technik": "Mixed Media",
+    "masse": "40 x 40",
+    "preis": null,
+    "status": null
+  },
+  {
+    "nr": "2025-030",
+    "titel": "Hagebutte",
+    "jahr": 2025,
+    "technik": "Aquarell und Buntstift",
+    "masse": "37 x 37 x 6",
+    "preis": null,
+    "status": null
+  },
+  {
+    "nr": "2025-031",
+    "titel": "Auf den Berg gehen",
+    "jahr": 2025,
+    "technik": "Mixed Media",
+    "masse": "33 x 33 x 3",
+    "preis": 120,
+    "status": null
+  },
+  {
+    "nr": "2025-032",
+    "titel": "Hommage an Egon Schiele",
+    "jahr": 2025,
+    "technik": "Mixed Media",
+    "masse": "21x30",
+    "preis": null,
+    "status": null
+  },
+  {
+    "nr": "2025-033",
+    "titel": "Hommage an Egon Schiele",
+    "jahr": 2025,
+    "technik": "Mixed Media",
+    "masse": "30 x 42",
+    "preis": 80,
+    "status": null
+  },
+  {
+    "nr": "2025-034",
+    "titel": "Licht im Tunnel",
+    "jahr": 2025,
+    "technik": "Mixed Media",
+    "masse": "30 x 24",
+    "preis": 120,
+    "status": null
+  },
+  {
+    "nr": "2025-035",
+    "titel": "Salbei - Küchenskizze",
+    "jahr": 2025,
+    "technik": "Mixed Media",
+    "masse": "21 x 30",
+    "preis": 60,
+    "status": null
+  },
+  {
+    "nr": "2025-036",
+    "titel": "Traubenhyazinthe",
+    "jahr": 2025,
+    "technik": "Aquarell und Bleistift",
+    "masse": "20 x 28",
+    "preis": 60,
+    "status": null
+  },
+  {
+    "nr": "2025-037",
+    "titel": "Knoblauch -Küchenskizze",
+    "jahr": 2025,
+    "technik": "Aquarell und Fineliner",
+    "masse": "32 x 24",
+    "preis": 60,
+    "status": null
+  },
+  {
+    "nr": "2025-038",
+    "titel": "Italy",
+    "jahr": 2025,
+    "technik": "Mixed Media",
+    "masse": "56 x 38",
+    "preis": null,
+    "status": null
+  },
+  {
+    "nr": "2025-039",
+    "titel": "Steinpilze",
+    "jahr": 2025,
+    "technik": "Aquarell",
+    "masse": "30x42",
+    "preis": 60,
+    "status": null
+  },
+  {
+    "nr": null,
+    "titel": "Ins Blaue",
+    "jahr": 2026,
+    "technik": null,
+    "masse": null,
+    "preis": 240,
+    "status": null
+  }
+]

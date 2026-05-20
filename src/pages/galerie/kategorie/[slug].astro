@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import ArtworkCard from "../../../components/ArtworkCard.astro";
+import { artworks, categories, artworksByCategorySlug } from "../../../lib/artworks";
+
+export function getStaticPaths() {
+  return categories.map((c) => ({ params: { slug: c.slug }, props: { category: c } }));
+}
+
+const { category } = Astro.props;
+const items = artworksByCategorySlug(category.slug);
+---
+<BaseLayout title={`${category.name} – Mauckert Gallery`}>
+  <div class="container">
+    <div class="hero" style="padding:3rem 0 1rem;">
+      <h1>{category.name}</h1>
+      <p class="subtitle">{items.length} {items.length === 1 ? "Werk" : "Werke"}</p>
+    </div>
+
+    <nav class="filter-bar">
+      <a href="/galerie/">Alle</a>
+      {categories.map((c) => (
+        <a href={`/galerie/kategorie/${c.slug}/`} class={c.slug === category.slug ? "active" : ""}>{c.name}</a>
+      ))}
+    </nav>
+
+    <div class="grid-artworks">
+      {items.map((a) => <ArtworkCard artwork={a} />)}
+    </div>
+  </div>
+</BaseLayout>

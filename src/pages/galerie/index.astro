@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ArtworkCard from "../../components/ArtworkCard.astro";
+import { artworks, categories } from "../../lib/artworks";
+---
+<BaseLayout title="Galerie – Mauckert Gallery">
+  <div class="container">
+    <div class="hero" style="padding:3rem 0 1rem;">
+      <h1>Galerie</h1>
+      <p class="subtitle">{artworks.length} Werke</p>
+    </div>
+
+    <nav class="filter-bar">
+      <a href="/galerie/" class="active">Alle</a>
+      {categories.map((c) => (
+        <a href={`/galerie/kategorie/${c.slug}/`}>{c.name}</a>
+      ))}
+    </nav>
+
+    <div class="grid-artworks">
+      {artworks.map((a) => <ArtworkCard artwork={a} />)}
+    </div>
+  </div>
+</BaseLayout>

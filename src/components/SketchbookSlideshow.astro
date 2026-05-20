@@ -1,0 +1,117 @@
+---
+import sketchbook from "../../data/sketchbook.json";
+
+interface Slide { title: string; src: string; thumb: string }
+const slides = sketchbook as Slide[];
+const initial = slides[0];
+---
+<section class="sketchbook">
+  <div class="container">
+    <figure class="sketchbook-quote">
+      <blockquote>„Die Zeichnung ist die Ehrlichkeit der Kunst."</blockquote>
+      <figcaption>— Hetty Krist</figcaption>
+    </figure>
+
+    <p class="eyebrow" style="text-align:center;">Sketchbook II</p>
+    <h2 class="section-title" style="text-align:center;">Aus dem Skizzenbuch</h2>
+
+    <div class="slideshow" data-total={slides.length}>
+      <button class="slide-nav prev" type="button" aria-label="Vorheriges Bild">‹</button>
+      <div class="slide-stage" role="region" aria-roledescription="Bildergalerie" aria-live="polite">
+        <button class="slide-main" type="button" aria-label="Bild vergrößern">
+          <img
+            id="sb-main"
+            src={initial.src}
+            alt={initial.title}
+            loading="eager"
+            decoding="async"
+          />
+        </button>
+        <div class="slide-caption">
+          <span id="sb-counter">1 / {slides.length}</span>
+          <span id="sb-title">{initial.title}</span>
+        </div>
+      </div>
+      <button class="slide-nav next" type="button" aria-label="Nächstes Bild">›</button>
+    </div>
+
+    <div class="slide-thumbs" id="sb-thumbs">
+      {slides.map((s, i) => (
+        <button
+          type="button"
+          class={`thumb${i === 0 ? " active" : ""}`}
+          data-index={i}
+          aria-label={s.title}
+        >
+          <img src={s.thumb} alt={s.title} loading="lazy" />
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <div class="lightbox" id="sb-lightbox" hidden>
+    <button class="lightbox-close" id="sb-close" aria-label="Schließen">×</button>
+    <button class="lightbox-nav prev" id="sb-lb-prev" aria-label="Vorheriges Bild">‹</button>
+    <img id="sb-lb-img" alt="" />
+    <button class="lightbox-nav next" id="sb-lb-next" aria-label="Nächstes Bild">›</button>
+    <div class="lightbox-caption" id="sb-lb-caption"></div>
+  </div>
+</section>
+
+<script is:inline define:vars={{ slides }}>
+  const data = slides;
+  let idx = 0;
+
+  const mainImg = document.getElementById("sb-main");
+  const titleEl = document.getElementById("sb-title");
+  const counterEl = document.getElementById("sb-counter");
+  const thumbs = Array.from(document.querySelectorAll("#sb-thumbs .thumb"));
+  const prevBtn = document.querySelector(".slideshow .slide-nav.prev");
+  const nextBtn = document.querySelector(".slideshow .slide-nav.next");
+  const mainBtn = document.querySelector(".slide-main");
+
+  const lb = document.getElementById("sb-lightbox");
+  const lbImg = document.getElementById("sb-lb-img");
+  const lbCap = document.getElementById("sb-lb-caption");
+
+  function update(i) {
+    idx = (i + data.length) % data.length;
+    const s = data[idx];
+    mainImg.src = s.src;
+    mainImg.alt = s.title;
+    titleEl.textContent = s.title;
+    counterEl.textContent = `${idx + 1} / ${data.length}`;
+    thumbs.forEach((t, ti) => t.classList.toggle("active", ti === idx));
+    thumbs[idx]?.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+    if (!lb.hasAttribute("hidden")) {
+      lbImg.src = s.src;
+      lbImg.alt = s.title;
+      lbCap.textContent = s.title;
+    }
+  }
+
+  prevBtn?.addEventListener("click", () => update(idx - 1));
+  nextBtn?.addEventListener("click", () => update(idx + 1));
+  thumbs.forEach((t) => t.addEventListener("click", () => update(Number(t.dataset.index))));
+  mainBtn?.addEventListener("click", () => {
+    const s = data[idx];
+    lbImg.src = s.src;
+    lbImg.alt = s.title;
+    lbCap.textContent = s.title;
+    lb.removeAttribute("hidden");
+    document.body.style.overflow = "hidden";
+  });
+  document.getElementById("sb-close")?.addEventListener("click", closeLb);
+  document.getElementById("sb-lb-prev")?.addEventListener("click", () => update(idx - 1));
+  document.getElementById("sb-lb-next")?.addEventListener("click", () => update(idx + 1));
+  lb.addEventListener("click", (e) => { if (e.target === lb) closeLb(); });
+  function closeLb() {
+    lb.setAttribute("hidden", "");
+    document.body.style.overflow = "";
+  }
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") update(idx - 1);
+    if (e.key === "ArrowRight") update(idx + 1);
+    if (e.key === "Escape" && !lb.hasAttribute("hidden")) closeLb();
+  });
+</script>

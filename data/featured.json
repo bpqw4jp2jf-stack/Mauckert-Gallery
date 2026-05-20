@@ -1,0 +1,15 @@
+[
+  { "slug": "herzen-im-wald",          "tag": "Masterpiece" },
+  { "slug": "abgewandt",               "tag": "Masterpiece", "sold": true },
+  { "slug": "abendstimmung-am-meer",   "tag": "Masterpiece" },
+  { "slug": "isabell",                 "tag": "Masterpiece" },
+  { "slug": "markus",                  "tag": "Masterpiece" },
+  { "slug": "verschlossen",            "tag": "Masterpiece" },
+  { "slug": "nicoletta-i",             "tag": "Masterpiece" },
+  { "slug": "das-meer-ruft",           "tag": "Masterpiece" },
+  { "slug": "geträumte-landschaft",    "tag": "Masterpiece" },
+  { "slug": "peaceful-ocean-view",     "tag": "Masterpiece" },
+  { "slug": "italienische-impression-1","tag": "Verkauft", "sold": true },
+  { "slug": "allgäu",                  "tag": "Verkauft", "sold": true },
+  { "slug": "rheingold-2",             "tag": "Verkauft", "sold": true }
+]

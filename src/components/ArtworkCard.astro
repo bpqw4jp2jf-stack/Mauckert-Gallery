@@ -1,0 +1,23 @@
+---
+import type { Artwork } from "../lib/artworks";
+import { primaryImage, formatPrice } from "../lib/artworks";
+
+interface Props {
+  artwork: Artwork;
+  badge?: string | null;
+  sold?: boolean;
+}
+const { artwork, badge = null, sold = false } = Astro.props;
+const img = primaryImage(artwork);
+---
+<a class="artwork-card" href={`/galerie/${artwork.slug}/`}>
+  <div class="frame">
+    {img && <img src={img} alt={artwork.name} loading="lazy" />}
+    {badge && <span class={`badge${sold ? " badge-sold" : ""}`}>{badge}</span>}
+    {sold && !badge && <span class="badge badge-sold">Verkauft</span>}
+  </div>
+  <div class="meta">
+    <span class="title">{artwork.name}</span>
+    <span class="price">{sold ? "Verkauft" : formatPrice(artwork)}</span>
+  </div>
+</a>

@@ -1,0 +1,57 @@
+[
+  {
+    "id": "8affec46-ce71-ef32-657f-1b02d77e7d97",
+    "name": "Abstrakt",
+    "slug": "abstrakt"
+  },
+  {
+    "id": "7e3df19f-f180-9e8d-b5c2-a5440a2e895f",
+    "name": "Acryl",
+    "slug": "acryl"
+  },
+  {
+    "id": "e8256397-8898-f74f-6bb9-cb921080d475",
+    "name": "Aquarell",
+    "slug": "aquarell"
+  },
+  {
+    "id": "1a68c272-2a00-0e4c-2601-971cc578453f",
+    "name": "Graphit",
+    "slug": "graphit"
+  },
+  {
+    "id": "5533c3a2-35ae-1271-85ce-fec50555c039",
+    "name": "Kohle",
+    "slug": "kohle"
+  },
+  {
+    "id": "0877ff98-a984-20c2-c2f2-f1a1293e6136",
+    "name": "Kreide",
+    "slug": "kreide"
+  },
+  {
+    "id": "3e64e2ba-1349-a295-da76-9260dc883fbc",
+    "name": "Pastell",
+    "slug": "pastell"
+  },
+  {
+    "id": "00e41cf8-b738-1b6d-8873-f91187a27221",
+    "name": "Rötelstift",
+    "slug": "rötelstift"
+  },
+  {
+    "id": "f41d7fca-eee5-dd32-1bdc-33cbb8010fa6",
+    "name": "Urban Sketching",
+    "slug": "urban-sketching"
+  },
+  {
+    "id": "90f6d034-85ef-af69-ad28-0507dcbe3eb9",
+    "name": "Zeichnung",
+    "slug": "zeichnung"
+  },
+  {
+    "id": "ae18440a-a05e-5f8b-4841-2806b3f99e81",
+    "name": "Öl",
+    "slug": "untitled-öl"
+  }
+]
