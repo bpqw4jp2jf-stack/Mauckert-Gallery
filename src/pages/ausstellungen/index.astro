@@ -16,7 +16,7 @@ const archive = exhibitions.filter((e) => !e.is_upcoming);
         <p class="eyebrow">Aktuell</p>
         {current.map((e) => (
           <a class="exhibition-card large" href={`/ausstellungen/${e.slug}/`}>
-            {e.cover && <div class="ex-cover"><img src={e.cover} alt={e.title} /></div>}
+            {e.cover && <div class="ex-cover"><img src={e.cover} alt={e.title} loading="lazy" decoding="async" /></div>}
             <div class="ex-meta">
               <h2>{e.title}</h2>
               <p class="ex-sub">{e.subtitle}</p>
@@ -35,7 +35,7 @@ const archive = exhibitions.filter((e) => !e.is_upcoming);
         {archive.map((e) => (
           <a class="exhibition-card" href={`/ausstellungen/${e.slug}/`}>
             {e.cover ? (
-              <div class="ex-cover"><img src={e.cover} alt={e.title} /></div>
+              <div class="ex-cover"><img src={e.cover} alt={e.title} loading="lazy" decoding="async" /></div>
             ) : (
               <div class="ex-cover placeholder"><span>{e.title}</span></div>
             )}
