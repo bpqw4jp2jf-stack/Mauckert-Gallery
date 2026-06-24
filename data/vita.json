@@ -1,13 +1,15 @@
 {
-  "intro": "Willkommen in meiner kreativen Welt! Seit meiner Kindheit liebe ich es zu zeichnen und zu malen – von Porträts und Aktzeichnungen über Aquarelle und Pastelle bis hin zu Urban Sketching und Acrylarbeiten. Jede Technik eröffnet mir neue Möglichkeiten, meine Gedanken und Gefühle auszudrücken und die vielfältige Schönheit meiner Umgebung festzuhalten.",
-  "intro_2": "Besonders inspiriert mich das Malen im Freien im malerischen Rheintal, wo die Natur und das wechselnde Licht meine Werke lebendig werden lassen. Die Unterstützung durch wunderbare Lehrer, meine engagierte Zeichengruppe und meine liebe Familie sind das Fundament meiner künstlerischen Reise.",
+  "intro": "Kunst beginnt für mich mit dem genauen Hinsehen. Linien, Strukturen, Licht und Stimmungen begleiten mich schon seit meinem Architekturstudium in Weimar. Was damals meinen Blick für Form und Raum geschärft hat, findet heute seinen Ausdruck in Malerei und Zeichnung — vom klaren Aktstudium bis zum freien Aquarell in der Natur.",
+  "intro_2": "Besonders gerne arbeite ich vor Ort, dort, wo Landschaft, Licht und Atmosphäre unmittelbar spürbar werden. So entstehen Bilder, die klassisches Handwerk mit dem spontanen Moment verbinden.",
+  "intro_3": "Jedes Werk ist ein Original mit eigener Geschichte — geprägt von meiner Heimat im Rheintal, von Begegnungen, Orten und Augenblicken. Auf meinem künstlerischen Weg begleiten mich wunderbare Lehrer, eine engagierte Zeichengruppe und meine Familie, die mir immer wieder Inspiration und Rückhalt geben.",
   "timeline": [
     { "date": "Mai 2026",       "event": "„ganz anders“ Waldalgesheim · Einzelausstellung", "highlight": true },
+    { "date": "November 2025",  "event": "„Kunst.“ Gemeinschaftsausstellung mit Hans Peter Schröder, Kunst-Raum Bingen" },
     { "date": "September 2025", "event": "Ausstellung in Münster-Sarmsheim bei „Kultur ganz nah“" },
     { "date": "Juni 2025",      "event": "Ankauf einer Arbeit und Ausstellung im Büro von Endrit Çela (AMF Capital AG)" },
     { "date": "Juni 2025",      "event": "Kunst trifft Kaffee – Ausstellung im KukuVaia, Frankfurt am Main" },
-    { "date": "März 2025",      "event": "Mitglied der Deutschen Pastellgesellschaft" },
     { "date": "Februar 2025",   "event": "Gemeinschaftsausstellung im Kunstspektrum Bingen mit H. Schroeder und R. Babusek" },
+    { "date": "2024",           "event": "Mitglied der Deutschen Pastellgesellschaft" },
     { "date": "Juni 2024",      "event": "Ankäufe Gemeinde Waldalgesheim, diverse Arbeiten in Privatbesitz" },
     { "date": "Juni 2024",      "event": "Ausstellung im VDP-Weingut Kruger Rumpf, Münster-Sarmsheim" },
     { "date": "Juni 2024",      "event": "Ankauf einer Arbeit und Ausstellung im Lume Boutique Hotel, Frankfurt" },
@@ -15,6 +17,10 @@
     { "date": "Mai 2024",       "event": "Gemeinschaftsausstellung „Heimat“, Kunstspektrum Bingen" },
     { "date": "März 2024",      "event": "Heilig-Geist-Hospital Bingen – Gemeinschaftsausstellung mit L. Hofmann" },
     { "date": "November 2023",  "event": "„Auf der Suche“ Waldalgesheim · Einzelausstellung" },
-    { "date": "Februar 2020",   "event": "Akt und Porträt Frankfurt Main · Gemeinschaftsausstellung" }
+    { "date": "2023",           "event": "Mitglied im Verein Kunstspektrum Bingen" },
+    { "date": "Februar 2020",   "event": "Akt und Porträt Frankfurt Main · Gemeinschaftsausstellung" },
+    { "date": "2017",           "event": "Mitglied der Zeichengruppe Porträt & Akt bei Hetty Krist, Frankfurt am Main" },
+    { "date": "1984 – 1989",    "event": "Studium an der Hochschule für Architektur und Bauwesen (HAB) Weimar – heute Bauhaus-Universität" },
+    { "date": "1964",           "event": "geboren in Binz auf Rügen" }
   ]
 }

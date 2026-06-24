@@ -8,16 +8,25 @@ interface Props {
   sold?: boolean;
 }
 const { artwork, badge = null, sold = false } = Astro.props;
+// A work counts as sold if explicitly flagged OR marked out of stock in the data.
+const isSold = sold || artwork.in_stock === false;
 const img = primaryImage(artwork);
+const altText = `${artwork.name}${artwork.categories.length ? ` – ${artwork.categories.join(", ")}` : ""} von Ute Mauckert`;
 ---
-<a class="artwork-card" href={`/galerie/${artwork.slug}/`}>
+<a
+  class="artwork-card"
+  href={`/galerie/${artwork.slug}/`}
+  data-available={(!isSold).toString()}
+  data-price={artwork.price ?? ""}
+  data-title={artwork.name}
+>
   <div class="frame">
-    {img && <img src={img} alt={artwork.name} loading="lazy" />}
-    {badge && <span class={`badge${sold ? " badge-sold" : ""}`}>{badge}</span>}
-    {sold && !badge && <span class="badge badge-sold">Verkauft</span>}
+    {img && <img src={img} alt={altText} loading="lazy" />}
+    {badge && <span class={`badge${isSold ? " badge-sold" : ""}`}>{badge}</span>}
+    {isSold && !badge && <span class="badge badge-sold">Verkauft</span>}
   </div>
   <div class="meta">
     <span class="title">{artwork.name}</span>
-    <span class="price">{sold ? "Verkauft" : formatPrice(artwork)}</span>
+    <span class="price">{isSold ? "Verkauft" : formatPrice(artwork)}</span>
   </div>
 </a>

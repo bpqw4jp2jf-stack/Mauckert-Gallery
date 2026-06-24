@@ -1,12 +1,18 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { businessInquiryMailto, workInquiryMailto } from "../lib/contact";
 ---
-<BaseLayout title="Kontakt – Mauckert Gallery">
+<BaseLayout title="Kontakt – Mauckert Gallery" description="Kontakt zu Ute Mauckert – Anfragen zu Werken, Ausstellungen und Kunst für Unternehmen & Gastgewerbe.">
   <div class="container">
     <div class="hero" style="padding:3.5rem 0 2rem;">
-      <h1>Kontakt</h1>
-      <p class="subtitle">Für Anfragen zu einzelnen Werken oder Ausstellungen.</p>
+      <p class="eyebrow" style="text-align:center;">Kontakt</p>
+      <h1>Schreiben Sie mir</h1>
+      <p class="subtitle">
+        Ob ein einzelnes Werk, eine Ausstellung oder Kunst für Ihre Räume –
+        ich melde mich persönlich, meist innerhalb weniger Tage.
+      </p>
     </div>
+
     <div class="prose" style="text-align:center;">
       <p style="font-family:var(--font-serif);font-size:1.5rem;margin:0.5rem 0;">
         <a href="mailto:s.mauckert@web.de">s.mauckert@web.de</a>
@@ -14,6 +20,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <p style="font-family:var(--font-serif);font-size:1.3rem;margin:0.5rem 0;color:var(--muted);">
         <a href="tel:+491726128239">0172 6128239</a>
       </p>
+
+      <div class="contact-paths">
+        <a class="btn" href={workInquiryMailto}>Werk anfragen</a>
+        <a class="btn btn-ghost" href={businessInquiryMailto}>Für Unternehmen anfragen</a>
+      </div>
+
       <p style="margin-top:2.5rem;color:var(--muted);">
         Mauckert Gallery<br />
         Schillerstraße 26<br />

@@ -1,13 +1,72 @@
 ---
+import "@fontsource/cormorant-garamond/400.css";
+import "@fontsource/cormorant-garamond/500.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
 import "../styles/global.css";
 
 interface Props {
   title: string;
   description?: string;
   theme?: "light" | "dark";
+  /** OG/Twitter share image, relative to the site root. */
+  image?: string;
+  /** og:type — "website" for normal pages, "article" for artwork/exhibition detail. */
+  type?: "website" | "article";
+  /** Extra page-specific JSON-LD (e.g. a VisualArtwork). Single object or array. */
+  jsonLd?: object | object[];
 }
-const { title, description = "Mauckert Gallery – Kunst von Ute Mauckert", theme = "light" } = Astro.props;
+const {
+  title,
+  description = "Mauckert Gallery – Malerei und Zeichnung von Ute Mauckert. Klassisch geschult, vor Ort gemalt, aus dem Rheintal.",
+  theme = "light",
+  image = "/og-image.jpg",
+  type = "website",
+  jsonLd,
+} = Astro.props;
 const path = Astro.url.pathname;
+const site = Astro.site ?? new URL("https://www.mauckertgallery.com");
+const canonical = new URL(path, site).toString();
+const ogImage = new URL(image, site).toString();
+const isDefaultOg = image === "/og-image.jpg";
+
+// Site-wide structured data: the artist (Person) + the website itself.
+const personLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Ute Mauckert",
+  jobTitle: "Malerin und Zeichnerin",
+  description:
+    "Malerin und Zeichnerin aus dem Rheintal – klassisch geschult (Architektur an der Bauhaus-Universität Weimar), mit Schwerpunkt auf Zeichnung, Aquarell, Pastell und Acryl.",
+  url: site.toString(),
+  image: new URL("/og-image.jpg", site).toString(),
+  knowsAbout: ["Malerei", "Zeichnung", "Aquarell", "Pastell", "Urban Sketching", "Aktzeichnung", "Porträt"],
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Schillerstraße 26",
+    postalCode: "55413",
+    addressLocality: "Weiler bei Bingen",
+    addressRegion: "Rheinland-Pfalz",
+    addressCountry: "DE",
+  },
+  email: "s.mauckert@web.de",
+  telephone: "+491726128239",
+};
+const websiteLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Mauckert Gallery",
+  url: site.toString(),
+  inLanguage: "de-DE",
+  about: { "@type": "Person", name: "Ute Mauckert" },
+};
+const extraLd = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+const allLd = [personLd, websiteLd, ...extraLd];
+
+// Cloudflare Web Analytics (cookielos, anonym). Token aus dem Cloudflare-Dashboard
+// (Analytics & Logs → Web Analytics → Add a site → Token kopieren) hier eintragen.
+// Leer lassen = Messung deaktiviert (kein Beacon wird geladen).
+const cfAnalyticsToken = "6ad83ec2829a419e9243a94c561812ee";
 function isActive(href: string) {
   if (href === "/") return path === "/";
   return path === href || path.startsWith(href + "/");
@@ -27,12 +86,35 @@ const nav = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#121920" />
+
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content="Mauckert Gallery" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    {isDefaultOg && <meta property="og:image:width" content="1200" />}
+    {isDefaultOg && <meta property="og:image:height" content="630" />}
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Structured data -->
+    {allLd.map((ld) => (
+      <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+    ))}
   </head>
   <body class={theme === "dark" ? "theme-dark" : ""}>
     <header class="site-header">
@@ -45,21 +127,62 @@ const nav = [
           </svg>
           <span class="brand-text">Mauckert Gallery</span>
         </a>
-        <nav class="nav">
+        <button
+          type="button"
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-label="Menü öffnen"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        >
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+        <nav class="nav" id="primary-nav">
           {nav.map((n) => (
             <a href={n.href} class={isActive(n.href) ? "active" : ""}>{n.label}</a>
           ))}
         </nav>
       </div>
     </header>
+    <script is:inline>
+      (() => {
+        const btn = document.getElementById("nav-toggle");
+        const header = document.querySelector(".site-header");
+        if (!btn || !header) return;
+        const setOpen = (open) => {
+          header.classList.toggle("nav-open", open);
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+          btn.setAttribute("aria-label", open ? "Menü schließen" : "Menü öffnen");
+        };
+        btn.addEventListener("click", () => setOpen(!header.classList.contains("nav-open")));
+        document.getElementById("primary-nav")?.addEventListener("click", (e) => {
+          if (e.target instanceof HTMLAnchorElement) setOpen(false);
+        });
+        document.addEventListener("keydown", (e) => { if (e.key === "Escape") setOpen(false); });
+      })();
+    </script>
     <main>
       <slot />
     </main>
     <footer class="site-footer">
       <div class="container">
         <div>&copy; {new Date().getFullYear()} Mauckert Gallery</div>
-        <div><a href="/impressum">Impressum</a></div>
+        <div><a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a></div>
       </div>
     </footer>
+    {cfAnalyticsToken && (
+      <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={`{"token": "${cfAnalyticsToken}"}`}></script>
+    )}
+    {import.meta.env.DEV && (
+      <a
+        href="/werk-erfassen"
+        title="Werk-Erfassen (nur lokal)"
+        style="position:fixed;right:18px;bottom:18px;z-index:9999;background:#2f4f4f;color:#fff;padding:12px 18px;border-radius:999px;font:600 14px/1 Inter,system-ui,sans-serif;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.25);"
+      >
+        ✎ Werk erfassen
+      </a>
+    )}
   </body>
 </html>

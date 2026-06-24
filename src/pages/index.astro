@@ -5,6 +5,7 @@ import SketchbookSlideshow from "../components/SketchbookSlideshow.astro";
 import HeroMasterpieces from "../components/HeroMasterpieces.astro";
 import { artworks, getArtworkBySlug } from "../lib/artworks";
 import { upcoming } from "../lib/exhibitions";
+import { businessInquiryMailto } from "../lib/contact";
 import featuredData from "../../data/featured.json";
 
 interface FeaturedEntry { slug: string; tag: string; sold?: boolean }
@@ -87,6 +88,21 @@ const techniques = [
           </div>
         </>
       )}
+    </div>
+  </section>
+
+  <section class="b2b">
+    <div class="container">
+      <p class="eyebrow">Für Unternehmen & Gastgewerbe</p>
+      <h2>Kunst, die Räume veredelt</h2>
+      <p class="b2b-body">
+        Originale verleihen Büros, Hotels, Kanzleien und Weingütern Charakter und
+        zeigen Werte. Arbeiten von Ute Mauckert hängen bereits bei der AMF Capital AG,
+        im Lume Boutique Hotel Frankfurt, im Weingut Kruger Rumpf und bei der Gemeinde
+        Waldalgesheim. Gern berate ich Sie zu einzelnen Werken oder ganzen Serien für
+        Ihre Räume.
+      </p>
+      <a class="btn" href={businessInquiryMailto}>Für Unternehmen anfragen</a>
     </div>
   </section>
 

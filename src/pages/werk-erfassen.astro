@@ -1,0 +1,169 @@
+---
+// Lokales "Werk-Erfassen"-Tool. Nur im Dev-Modus (localhost) sinnvoll, da es
+// über /api/erfassung den Stand in data/erfassung.json speichert.
+import { PFLICHTFELDER, FELD_LABEL } from "../lib/erfassung";
+
+export const prerender = false;
+
+if (!import.meta.env.DEV) {
+  return new Response("Werk-Erfassen ist nur lokal (npm run dev) verfügbar.", {
+    status: 403,
+  });
+}
+
+// Feld-Definitionen an den Client übergeben.
+const felder = [
+  { key: "titel", label: FELD_LABEL.titel, type: "text" },
+  { key: "jahr", label: FELD_LABEL.jahr, type: "text" },
+  { key: "technik", label: FELD_LABEL.technik, type: "text" },
+  { key: "masse", label: FELD_LABEL.masse, type: "text" },
+  { key: "preis", label: FELD_LABEL.preis, type: "text" },
+  { key: "status", label: FELD_LABEL.status, type: "status" },
+  { key: "notiz", label: FELD_LABEL.notiz, type: "textarea" },
+];
+const pflicht = PFLICHTFELDER;
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Werk-Erfassen · Mauckert Gallery</title>
+    <style is:inline>
+      :root {
+        --bg: #f4f1ec;
+        --card: #fff;
+        --ink: #23201b;
+        --muted: #8a8378;
+        --line: #e3ddd2;
+        --accent: #2f4f4f;
+        --ok: #2e7d32;
+        --warn: #c77a00;
+        --warnbg: #fff7e6;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+      }
+      .bar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: var(--accent);
+        color: #fff;
+        padding: 14px 20px;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        flex-wrap: wrap;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+      }
+      .bar h1 { font-size: 18px; margin: 0; font-weight: 600; }
+      .bar .progress { font-size: 15px; opacity: 0.95; }
+      .bar .spacer { flex: 1; }
+      .bar button, .bar label.toggle {
+        font: inherit;
+        font-size: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        background: rgba(255, 255, 255, 0.12);
+        color: #fff;
+        padding: 8px 14px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      .bar button.primary { background: #fff; color: var(--accent); font-weight: 600; border-color: #fff; }
+      .bar button:disabled { opacity: 0.5; cursor: default; }
+      .bar .saved { font-size: 14px; opacity: 0.9; min-width: 90px; }
+      .wrap { max-width: 1000px; margin: 0 auto; padding: 22px 16px 120px; }
+      .hint { color: var(--muted); font-size: 14px; margin: 0 0 18px; }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 16px;
+        margin-bottom: 16px;
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        gap: 18px;
+      }
+      .card.incomplete { border-color: #e7c98c; background: var(--warnbg); }
+      .card .photo {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+      }
+      .card .photo img {
+        width: 100%;
+        max-height: 220px;
+        object-fit: contain;
+        background: #faf8f4;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+      }
+      .nr {
+        font-variant-numeric: tabular-nums;
+        font-weight: 700;
+        font-size: 20px;
+        letter-spacing: 1px;
+      }
+      .badge {
+        font-size: 12px;
+        padding: 3px 9px;
+        border-radius: 999px;
+        font-weight: 600;
+      }
+      .badge.ok { background: #e6f4ea; color: var(--ok); }
+      .badge.miss { background: #fdeccd; color: var(--warn); }
+      .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; }
+      .field { display: flex; flex-direction: column; gap: 3px; }
+      .field.full { grid-column: 1 / -1; }
+      .field label { font-size: 12px; color: var(--muted); font-weight: 600; }
+      .field input, .field textarea, .field select {
+        font: inherit;
+        font-size: 15px;
+        padding: 8px 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--ink);
+      }
+      .field textarea { min-height: 46px; resize: vertical; }
+      .field.missing input, .field.missing select { border-color: #e0a83c; background: #fffaf0; }
+      .quelle { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+      @media (max-width: 640px) {
+        .card { grid-template-columns: 1fr; }
+        .fields { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bar">
+      <h1>Werk-Erfassen</h1>
+      <span class="progress" id="progress">lädt …</span>
+      <span class="spacer"></span>
+      <label class="toggle"><input type="checkbox" id="onlyIncomplete" /> nur unvollständige</label>
+      <button id="nextBtn" type="button">→ nächstes unvollständiges</button>
+      <button id="resortBtn" type="button">neu sortieren</button>
+      <button id="saveBtn" class="primary" type="button">Speichern</button>
+      <span class="saved" id="savedState"></span>
+    </div>
+
+    <div class="wrap">
+      <p class="hint">
+        Alle vorhandenen Infos sind automatisch eingetragen. Vollständige Werke werden zuerst
+        nummeriert (001, 002 …). Gelb markierte Felder fehlen noch – einfach ausfüllen. Es wird
+        automatisch gespeichert.
+      </p>
+      <div id="list"></div>
+    </div>
+
+    <script type="application/json" id="erfassung-config" set:html={JSON.stringify({ felder, pflicht })}></script>
+    <script is:inline src="/werk-erfassen.js"></script>
+  </body>
+</html>

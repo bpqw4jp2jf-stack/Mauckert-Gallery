@@ -10,6 +10,18 @@
     "status": "current",
     "is_upcoming": true,
     "description": "Zweite Einzelausstellung in Waldalgesheim. Neue Arbeiten von Ute Mauckert – Zeichnungen, Aquarelle, Pastelle, Urban Sketches und Acrylarbeiten.",
+    "press": {
+      "outlet": "Öffentlicher Anzeiger",
+      "headline": "Bilder, die so vielfältig sind wie das Leben",
+      "byline": "Von Dieter Ackermann",
+      "date_label": "14. Mai 2026",
+      "quote": "Ich liebe es zu zeichnen. Porträt und Akt, Aquarellieren, aber auch Pastell, Urban Sketching und Acrylarbeiten üben einen besonderen Reiz auf mich aus. Meine Leidenschaft ist und bleibt das Zeichnen.",
+      "body": [
+        "„Ihre Werke sind so vielfältig wie ihr Leben, sie liebt die Natur. Das alles findet sich in ihren Bildern – das zeigt Mut und Vielfalt.“ Mit diesen Worten würdigte Laudatorin Sibylle Linneboe die Eröffnung der Ausstellung „ganz anders“ von Ute Mauckert im Waldalgesheimer Rathaus.",
+        "Ortsbürgermeister Helmut Schmitt freute sich, dass Kunst und Kultur im Rathaus mit zahlreichen Ausstellungen zur Geltung kommen. Gezeigt wurden 35 Porträts, Landschaften und Stillleben in Aquarell und Pastell.",
+        "Ute Mauckert, 1964 in Binz auf Rügen geboren, studierte an der Hochschule für Architektur in Weimar. Sie ist Mitglied der Zeichengruppe Porträt & Akt bei Hetty Krist (Frankfurt), im Binger Kunstspektrum und in der Deutschen Pastellgesellschaft."
+      ]
+    },
     "images": [
       "/images/ausstellungen/ganz-anders/poster-preview.png",
       "/images/ausstellungen/ganz-anders/ganz-anders-01.jpg",
@@ -18,6 +30,37 @@
       "/images/ausstellungen/ganz-anders/ganz-anders-04.jpg"
     ],
     "cover": "/images/ausstellungen/ganz-anders/hauptbild.jpg"
+  },
+  {
+    "slug": "kunst-punkt",
+    "title": "Kunst.",
+    "subtitle": "Gemeinschaftsausstellung mit Hans Peter Schröder",
+    "location": "Kunst-Raum Bingen",
+    "date_label": "November 2025",
+    "start": "2025-11-08",
+    "end": "2025-11-27",
+    "status": "past",
+    "is_upcoming": false,
+    "description": "Gemeinschaftsausstellung von Ute Mauckert und Hans Peter Schröder im Kunst-Raum Bingen. Zwei Mitglieder des Binger Kunstspektrums und leidenschaftliche Urban Sketcher zeigen Bingen und Umgebung aus ihren ganz persönlichen Blickwinkeln – „ein Sehen mit anderen Augen“. Ergänzt um Hommagen an Alte Meister.",
+    "press": {
+      "outlet": "Binger Wochenblatt",
+      "headline": "Zwei Künstler – zwei Sichtweisen",
+      "byline": "Von Bernadette Heim",
+      "date_label": "November 2025",
+      "quote": "Der persönliche Blickwinkel ist es, der dasselbe Motiv unterschiedlich entstehen lässt.",
+      "body": [
+        "Da haben sich zwei gefunden: Ute Mauckert und Hans Peter Schröder – zwei Künstler, unterschiedliche Sichtweisen, eine Leidenschaft. Gemeinsam luden sie in den Kunst-Raum Bingen zu ihrer Gemeinschaftsausstellung ein.",
+        "Beide sind seit 2023 Mitglied im Binger Kunstspektrum und betreiben Urban Sketching. „Selbst wenn wir am selben Ort dasselbe Motiv sehen, stellen wir es auf unsere ganz persönliche Art dar. Es ist wie ein Sehen mit anderen Augen“, so Schröder.",
+        "Ute Mauckert, die ihr Studium an der Hochschule für Architektur in Weimar absolviert hat, findet in der Kunst den Ausgleich zur gradlinigen Arbeit. Als Kopisten widmeten sich beide Alten Meistern wie Dalí, Escher, van Gogh, Kollwitz, Picasso, Richter und Schiele – ein Teil der Ausstellung."
+      ]
+    },
+    "images": [
+      "/images/ausstellungen/kunst-punkt/kunst-punkt-01.jpg",
+      "/images/ausstellungen/kunst-punkt/kunst-punkt-02.jpg",
+      "/images/ausstellungen/kunst-punkt/kunst-punkt-03.jpg",
+      "/images/ausstellungen/kunst-punkt/kunst-punkt-04.jpg"
+    ],
+    "cover": "/images/ausstellungen/kunst-punkt/hauptbild.jpg"
   },
   {
     "slug": "kunst-trifft-kaffee",

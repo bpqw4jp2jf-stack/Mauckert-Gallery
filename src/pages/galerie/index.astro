@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ArtworkCard from "../../components/ArtworkCard.astro";
+import GalleryControls from "../../components/GalleryControls.astro";
 import { artworks, categories } from "../../lib/artworks";
 ---
 <BaseLayout title="Galerie – Mauckert Gallery">
@@ -16,6 +17,8 @@ import { artworks, categories } from "../../lib/artworks";
         <a href={`/galerie/kategorie/${c.slug}/`}>{c.name}</a>
       ))}
     </nav>
+
+    <GalleryControls total={artworks.length} />
 
     <div class="grid-artworks">
       {artworks.map((a) => <ArtworkCard artwork={a} />)}

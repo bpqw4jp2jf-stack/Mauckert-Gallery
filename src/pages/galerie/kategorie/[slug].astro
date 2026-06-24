@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import ArtworkCard from "../../../components/ArtworkCard.astro";
+import GalleryControls from "../../../components/GalleryControls.astro";
 import { artworks, categories, artworksByCategorySlug } from "../../../lib/artworks";
 
 export function getStaticPaths() {
@@ -23,6 +24,8 @@ const items = artworksByCategorySlug(category.slug);
         <a href={`/galerie/kategorie/${c.slug}/`} class={c.slug === category.slug ? "active" : ""}>{c.name}</a>
       ))}
     </nav>
+
+    <GalleryControls total={items.length} />
 
     <div class="grid-artworks">
       {items.map((a) => <ArtworkCard artwork={a} />)}

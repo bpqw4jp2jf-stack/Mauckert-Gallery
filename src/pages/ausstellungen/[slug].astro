@@ -7,8 +7,31 @@ export function getStaticPaths() {
 }
 
 const { exhibition: e } = Astro.props;
+// Drop the generated logo placeholder ("poster-preview") from the impressions.
+const gallery = (e.images ?? []).filter((src: string) => !/poster-preview/i.test(src));
+const heroImage = e.cover || gallery[0] || null;
+const ogImage = e.cover || gallery[0] || "/og-image.jpg";
+
+const eventLd = {
+  "@context": "https://schema.org",
+  "@type": "ExhibitionEvent",
+  name: e.title,
+  description: e.description,
+  ...(e.start ? { startDate: e.start } : {}),
+  ...(e.end ? { endDate: e.end } : {}),
+  ...(e.location ? { location: { "@type": "Place", name: e.location } } : {}),
+  ...(ogImage ? { image: new URL(ogImage, Astro.site).toString() } : {}),
+  performer: { "@type": "Person", name: "Ute Mauckert" },
+  organizer: { "@type": "Organization", name: "Mauckert Gallery" },
+};
 ---
-<BaseLayout title={`${e.title} – Mauckert Gallery`}>
+<BaseLayout
+  title={`${e.title} – Mauckert Gallery`}
+  description={`${e.title} – ${e.subtitle ? e.subtitle + ", " : ""}${e.location} (${e.date_label}). ${e.description}`.slice(0, 300)}
+  type="article"
+  image={ogImage}
+  jsonLd={eventLd}
+>
   <div class="container">
     <div class="exhibition-detail-head">
       <p class="eyebrow">{e.is_upcoming ? "Aktuell" : "Archiv"} · {e.date_label}</p>
@@ -16,6 +39,12 @@ const { exhibition: e } = Astro.props;
       <p class="ex-sub">{e.subtitle}</p>
       <p class="ex-loc">{e.location}</p>
     </div>
+
+    {heroImage && (
+      <div class="exhibition-hero">
+        <img src={heroImage} alt={`${e.title} – ${e.location}`} loading="eager" decoding="async" />
+      </div>
+    )}
 
     <div class="prose">
       <p>{e.description}</p>
@@ -31,14 +60,14 @@ const { exhibition: e } = Astro.props;
       </article>
     )}
 
-    {e.images.length > 0 && (
+    {gallery.length > 0 && (
       <section class="exhibition-gallery">
         <h2 class="section-title">Impressionen</h2>
-        <div class="gallery-grid">
-          {e.images.map((src: string, i: number) => (
-            <a href={src} class="gallery-item">
+        <div class="gallery-grid" id="ex-grid">
+          {gallery.map((src: string, i: number) => (
+            <button type="button" class="gallery-item" data-index={i} aria-label={`${e.title} – Impression ${i + 1} vergrößern`}>
               <img src={src} alt={`${e.title} – Impression ${i + 1}`} loading="lazy" />
-            </a>
+            </button>
           ))}
         </div>
       </section>
@@ -46,4 +75,54 @@ const { exhibition: e } = Astro.props;
 
     <p style="margin-top:3rem;"><a href="/ausstellungen/" style="color:var(--muted);">← Alle Ausstellungen</a></p>
   </div>
+
+  {gallery.length > 0 && (
+    <div class="lightbox" id="ex-lightbox" hidden>
+      <button class="lightbox-close" id="ex-close" aria-label="Schließen">×</button>
+      <button class="lightbox-nav prev" id="ex-prev" aria-label="Vorheriges Bild">‹</button>
+      <img id="ex-lb-img" alt="" />
+      <button class="lightbox-nav next" id="ex-next" aria-label="Nächstes Bild">›</button>
+      <div class="lightbox-caption" id="ex-lb-caption"></div>
+    </div>
+
+    <script is:inline define:vars={{ gallery, title: e.title }}>
+      (() => {
+        const imgs = gallery;
+        if (!imgs.length) return;
+        let idx = 0;
+        const lb = document.getElementById("ex-lightbox");
+        const lbImg = document.getElementById("ex-lb-img");
+        const lbCap = document.getElementById("ex-lb-caption");
+        const items = Array.from(document.querySelectorAll("#ex-grid .gallery-item"));
+
+        function show(i) {
+          idx = (i + imgs.length) % imgs.length;
+          lbImg.src = imgs[idx];
+          lbImg.alt = `${title} – Impression ${idx + 1}`;
+          lbCap.textContent = `${idx + 1} / ${imgs.length}`;
+        }
+        function open(i) {
+          show(i);
+          lb.removeAttribute("hidden");
+          document.body.style.overflow = "hidden";
+        }
+        function close() {
+          lb.setAttribute("hidden", "");
+          document.body.style.overflow = "";
+        }
+
+        items.forEach((el) => el.addEventListener("click", () => open(Number(el.dataset.index))));
+        document.getElementById("ex-close")?.addEventListener("click", close);
+        document.getElementById("ex-prev")?.addEventListener("click", () => show(idx - 1));
+        document.getElementById("ex-next")?.addEventListener("click", () => show(idx + 1));
+        lb.addEventListener("click", (e) => { if (e.target === lb) close(); });
+        document.addEventListener("keydown", (e) => {
+          if (lb.hasAttribute("hidden")) return;
+          if (e.key === "ArrowLeft") show(idx - 1);
+          if (e.key === "ArrowRight") show(idx + 1);
+          if (e.key === "Escape") close();
+        });
+      })();
+    </script>
+  )}
 </BaseLayout>

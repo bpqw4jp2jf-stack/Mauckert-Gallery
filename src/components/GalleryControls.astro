@@ -1,0 +1,85 @@
+---
+// Client-side filter ("nur verfügbare") + sort for any page that renders a
+// `.grid-artworks` of `.artwork-card` items (gallery index + category pages).
+// Reads data-available / data-price / data-title off the cards.
+const { total } = Astro.props as { total: number };
+---
+<div class="gallery-controls">
+  <label class="gc-toggle">
+    <input type="checkbox" id="gc-available" />
+    <span>Nur verfügbare</span>
+  </label>
+
+  <label class="gc-sort">
+    <span class="gc-sort-label">Sortieren</span>
+    <select id="gc-sort">
+      <option value="default">Standard</option>
+      <option value="price-asc">Preis: aufsteigend</option>
+      <option value="price-desc">Preis: absteigend</option>
+      <option value="title">Titel: A–Z</option>
+    </select>
+  </label>
+
+  <span class="gc-count" id="gc-count">{total} Werke</span>
+</div>
+
+<script is:inline>
+  (() => {
+    function init() {
+    const grid = document.querySelector(".grid-artworks");
+    const availBox = document.getElementById("gc-available");
+    const sortSel = document.getElementById("gc-sort");
+    const countEl = document.getElementById("gc-count");
+    if (!grid || !availBox || !sortSel) return;
+
+    const cards = Array.from(grid.querySelectorAll(".artwork-card"));
+    const original = cards.slice(); // remember the default order
+    const priceOf = (c) => {
+      const v = parseFloat(c.dataset.price);
+      return Number.isFinite(v) && v > 0 ? v : null;
+    };
+
+    function apply() {
+      const onlyAvail = availBox.checked;
+      const sort = sortSel.value;
+
+      // Sort a working copy
+      let ordered = original.slice();
+      if (sort === "title") {
+        ordered.sort((a, b) =>
+          (a.dataset.title || "").localeCompare(b.dataset.title || "", "de"),
+        );
+      } else if (sort === "price-asc" || sort === "price-desc") {
+        ordered.sort((a, b) => {
+          const pa = priceOf(a), pb = priceOf(b);
+          if (pa === null && pb === null) return 0;
+          if (pa === null) return 1; // works without a price go last
+          if (pb === null) return -1;
+          return sort === "price-asc" ? pa - pb : pb - pa;
+        });
+      }
+
+      // Re-append in the new order (also applies "default" = original order)
+      ordered.forEach((c) => grid.appendChild(c));
+
+      // Filter visibility + count
+      let shown = 0;
+      ordered.forEach((c) => {
+        const hide = onlyAvail && c.dataset.available !== "true";
+        c.style.display = hide ? "none" : "";
+        if (!hide) shown++;
+      });
+      if (countEl) countEl.textContent = `${shown} ${shown === 1 ? "Werk" : "Werke"}`;
+    }
+
+    availBox.addEventListener("change", apply);
+    sortSel.addEventListener("change", apply);
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
+    }
+  })();
+</script>

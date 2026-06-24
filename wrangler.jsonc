@@ -13,5 +13,11 @@
   "assets": {
     "binding": "ASSETS",
     "directory": "dist"
-  }
+  },
+  // Custom Domains – greifen erst NACH der Nameserver-Umstellung auf Cloudflare
+  // (Zone muss "Active" sein). Dann: `wrangler deploy` -> SSL wird automatisch ausgestellt.
+  "routes": [
+    { "pattern": "mauckertgallery.com", "custom_domain": true },
+    { "pattern": "www.mauckertgallery.com", "custom_domain": true }
+  ]
 }
